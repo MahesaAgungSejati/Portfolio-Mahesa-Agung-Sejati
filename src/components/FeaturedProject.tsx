@@ -5,7 +5,7 @@ import { useGSAP } from '@gsap/react';
 import { X, ArrowRight, ArrowLeft, ExternalLink } from 'lucide-react';
 
 // Pastikan Anda sudah mengimport gambar-gambar ini di atas jika menggunakan Vite/Webpack
-import mejayan1 from '../assets/other/mejayan1.png';
+import mejayan1 from '../assets/other/mejayan1.jpeg';
 import mejayan2 from '../assets/other/mejayan2.png';
 import mejayan3 from '../assets/other/mejayan3.png';
 import mejayan4 from '../assets/other/mejayan4.png';
@@ -25,14 +25,14 @@ import pecel9 from '../assets/other/pecel9.png';
 import pecel10 from '../assets/other/pecel10.png';
 
 import gomadiun1 from '../assets/other/gomadiun.png';
-import gomadiun2 from '../assets/other/gomadiun2.png';
-import gomadiun3 from '../assets/other/gomadiun3.png';
-import gomadiun4 from '../assets/other/gomadiun4.png';
-import gomadiun5 from '../assets/other/gomadiun5.png';
-import gomadiun6 from '../assets/other/gomadiun6.png';
-import gomadiun7 from '../assets/other/gomadiun7.png';
+import gomadiun2 from '../assets/other/gomadiun2.jpeg';
+import gomadiun3 from '../assets/other/gomadiun3.jpeg';
+import gomadiun4 from '../assets/other/gomadiun4.jpeg';
+import gomadiun5 from '../assets/other/gomadiun5.jpeg';
+import gomadiun6 from '../assets/other/gomadiun6.jpeg';
+import gomadiun7 from '../assets/other/gomadiun7.jpeg';
 import gomadiun8 from '../assets/other/gomadiun8.png';
-import gomadiun14 from '../assets/other/gomadiun9.png';
+import gomadiun14 from '../assets/other/gomadiun9.jpeg';
 import gomadiun15 from '../assets/other/gomadiun10.png';
 import gomadiun9 from '../assets/other/admin_go.png';
 import gomadiun10 from '../assets/other/admin_go2.png';
@@ -51,24 +51,24 @@ import adminTech4 from '../assets/other/admin_tech4.png';
 import adminTech5 from '../assets/other/admin_tech5.png';
 
 import sipbibu1 from '../assets/other/sipbibu.png';
-import sipbibu2 from '../assets/other/sipbibu2.png';
+import sipbibu2 from '../assets/other/sipbibu2.jpeg';
 import sipbibu3 from '../assets/other/sipbibu3.png';
 import sipbibu4 from '../assets/other/sipbibu4.png';
 import sipbibu5 from '../assets/other/sipbibu5.png';
 
 import adminSbb1 from '../assets/other/admin_sbb.png';
-import adminSbb2 from '../assets/other/admin_sbb2.png';
+import adminSbb2 from '../assets/other/admin_sbb2.jpeg';
 import adminSbb3 from '../assets/other/admin_sbb3.png';
 import adminSbb4 from '../assets/other/admin_sbb4.png';
 
 import aura1 from '../assets/other/aura.png';
-import aura2 from '../assets/other/aura2.png';
+import aura2 from '../assets/other/aura2.jpeg';
 import aura3 from '../assets/other/aura3.png';
 import aura4 from '../assets/other/aura4.png';
 import aura5 from '../assets/other/aura5.png';
-import aura6 from '../assets/other/aura6.png';
+import aura6 from '../assets/other/aura6.jpeg';
 
-import zenecox1 from '../assets/other/zenecox.png';
+import zenecox1 from '../assets/other/zenecox.jpeg';
 import zenecox2 from '../assets/other/zenecox2.png';
 import zenecox3 from '../assets/other/zenecox3.png';
 import zenecox4 from '../assets/other/zenecox4.png';
@@ -79,7 +79,7 @@ import zenecox8 from '../assets/other/zenecox8.png';
 import zenecox9 from '../assets/other/zenecox9.png';
 
 import mychanic1 from '../assets/other/mychanic.png';
-import mychanic2 from '../assets/other/mychanic2.png';
+import mychanic2 from '../assets/other/mychanic2.jpeg';
 import mychanic3 from '../assets/other/mychanic3.png';
 import mychanic4 from '../assets/other/mychanic4.png';
 import mychanic5 from '../assets/other/mychanic5.png';

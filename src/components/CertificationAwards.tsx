@@ -11,7 +11,7 @@ import TOEIC from "../assets/other/Sertifikat TOEIC.jpg"
 import Olivia from "../assets/other/olivia.jpg"
 import Gayatama from "../assets/other/gayatama.jpg"
 
-import windmillImg from '../assets/windmill4.png';
+import windmillImg from '../assets/windmill3.png';
 
 gsap.registerPlugin(ScrollTrigger);
 

@@ -69,25 +69,24 @@ const Organization: React.FC = () => {
       }
     );
 
-    // Animasi Baris Individual (Muncul satu per satu saat di-scroll)
+    // PERBAIKAN ANIMASI: Menggunakan efek Stagger agar muncul berurutan dengan mulus dan tidak telat
     const orgRows = gsap.utils.toArray('.org-row');
     
-    orgRows.forEach((row: any) => {
-      gsap.fromTo(row,
-        { rotationX: -90, opacity: 0, transformOrigin: 'top' },
-        {
-          scrollTrigger: { 
-            trigger: row, 
-            start: 'top 85%', // Trigger saat masing-masing baris mencapai 85% layar
-            toggleActions: "play none none reverse" // Opsional: Animasi ulang saat scroll bolak-balik
-          },
-          rotationX: 0, 
-          opacity: 1, 
-          duration: 1, 
-          ease: 'power3.out' 
-        }
-      );
-    });
+    gsap.fromTo(orgRows,
+      { rotationX: -90, opacity: 0, transformOrigin: 'top' },
+      {
+        scrollTrigger: { 
+          trigger: sectionRef.current, // Memicu dari section induknya langsung
+          start: 'top 60%', // Trigger lebih awal saat tulisan "Leadership" mulai terlihat
+          toggleActions: "play none none reverse" 
+        },
+        rotationX: 0, 
+        opacity: 1, 
+        duration: 0.8, 
+        stagger: 0.15, // Efek jeda 0.15 detik antar baris sehingga muncul seperti gelombang jatuh
+        ease: 'power3.out' 
+      }
+    );
 
   }, { scope: sectionRef });
 
@@ -127,7 +126,7 @@ const Organization: React.FC = () => {
         </div>
         <div className="overflow-hidden">
           <h2 className="org-title-anim font-display font-bold text-5xl md:text-7xl uppercase tracking-tighter">
-            Organizational <span className="text-outline">Experience</span>
+            Organization <span className="text-outline">Experience</span>
           </h2>
         </div>
       </div>
@@ -146,7 +145,6 @@ const Organization: React.FC = () => {
                 {String(index + 1).padStart(2, '0')}
               </span>
               
-              {/* PERBAIKAN: Menambahkan class w-fit di sini agar border menyesuaikan lebar teks */}
               <span className="font-sans text-xs uppercase tracking-widest text-gray-400 group-hover:text-gray-800 md:mt-auto border border-gray-700 group-hover:border-gray-800 rounded-full px-3 py-1 w-fit">
                 {org.period}
               </span>

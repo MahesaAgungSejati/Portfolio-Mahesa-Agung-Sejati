@@ -227,7 +227,7 @@ const Experience: React.FC = () => {
         </div>
         <div className="overflow-hidden">
           <h2 className="exp-title-anim font-display font-bold text-5xl md:text-7xl uppercase tracking-tighter">
-            Experience <span className="text-outline">&</span> Skill
+            My Experience 
           </h2>
         </div>
       </div>

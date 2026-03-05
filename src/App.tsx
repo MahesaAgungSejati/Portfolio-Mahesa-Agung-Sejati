@@ -15,6 +15,7 @@ import Organization from './components/Organization';
 import ActivityGallery from './components/ActivityGallery';
 import Footer from './components/Footer';
 import Connect from './components/Connect';
+import DesktopNotice from './components/DesktopNotice';
 
 // Registrasi Plugin
 gsap.registerPlugin(ScrollTrigger);
@@ -59,6 +60,7 @@ function App() {
       <ActivityGallery />
       <Footer />
       <Connect />
+      <DesktopNotice />
     </main>
   );
 }

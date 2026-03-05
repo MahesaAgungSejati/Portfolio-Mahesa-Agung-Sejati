@@ -4,7 +4,7 @@ import { useGSAP } from '@gsap/react';
 import { ArrowDownRight, Download } from 'lucide-react';
 
 import WormIcon from "../assets/gallery/worm.png";
-import CircleIcon from '../assets/windmill3.png';
+import CircleIcon from '../assets/windmill4.png';
 
 // ─────────────────────────────────────────────────────────────────
 // SVG ICONS
