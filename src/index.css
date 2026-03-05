@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-noir-900 text-noir-100 font-sans overflow-x-hidden;
+  }
+}
+
+/* Custom class untuk teks transparan dengan outline (efek Noir) */
+.text-outline {
+  -webkit-text-stroke: 1px #f5f5f5;
+  color: transparent;
+}
