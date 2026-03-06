@@ -480,7 +480,7 @@ const Hero: React.FC = () => {
         <div className="hero-sub-intro flex flex-col items-end gap-4">
           <div className="flex items-center gap-3">
             <a
-              href="https://drive.google.com/file/d/1KaHUaz12IY4fvQwvqidUPDL-pJzrUDGp/view?usp=drive_link"
+              href="https://drive.google.com/file/d/1FYQAfIoDg9JTP4BSZiaz_MCvAWZ2WdmA/view?usp=drive_link"
               target="_blank" rel="noopener noreferrer"
               className="group flex items-center justify-center w-11 h-11 md:w-13 md:h-13 rounded-full border border-white/20 hover:border-white hover:bg-white transition-all duration-300"
               title="Download CV"
