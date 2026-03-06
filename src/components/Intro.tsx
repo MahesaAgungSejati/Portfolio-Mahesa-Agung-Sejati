@@ -286,7 +286,7 @@ const Intro: React.FC = () => {
               <div className="flex items-center gap-4">
                 <div className="w-6 h-px bg-white/20" />
                 <span className="font-sans text-[10px] uppercase tracking-[0.25em] text-white/25">
-                  Full-Stack Programmer | Front-End Programmer | Data Analyst
+                  Full-Stack Developer | Front-End Developer | Data Analyst
                 </span>
               </div>
               <div className="ml-auto flex items-center gap-2">

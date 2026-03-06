@@ -8,10 +8,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 const careerJourney = [
   // Tambahan data Freelance baru di urutan paling atas
-  { role: "Full-Stack / Front-End Programmer", company: "Freelance", period: "2025 - Present" },
-  { role: "Full-Stack Programmer (Intern)", company: "DISPARPORA Kab. Madiun",  period: "Sep 2024 - Jul 2025" },
-  { role: "Full-Stack Programmer (Intern)", company: "Sebelas Maret University", period: "Jan 2025 - Mar 2025" },
-  { role: "Full-Stack Programmer (Intern)", company: "Garapan.id",               period: "Feb 2024 - Jun 2024" },
+  { role: "Full-Stack / Front-End Developer", company: "Freelance", period: "2025 - Present" },
+  { role: "Full-Stack Developer (Intern)", company: "DISPARPORA Kab. Madiun",  period: "Sep 2024 - Jul 2025" },
+  { role: "Full-Stack Developer (Intern)", company: "Sebelas Maret University", period: "Jan 2025 - Mar 2025" },
+  { role: "Full-Stack Developer (Intern)", company: "Garapan.id",               period: "Feb 2024 - Jun 2024" },
 ];
 
 const education = [

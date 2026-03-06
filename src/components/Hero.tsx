@@ -207,19 +207,19 @@ const ICONS: IconDef[] = [
     width: 'clamp(38px,6vw,96px)', height: 'clamp(38px,6vw,96px)', zIndex: 30,
   },
   // Permanent: worm PNG — sits below/inside word2
-{
+  {
     id: 'worm', word: 2, charIdx: 3, permanent: true,
     enterVars: { scale: 1, opacity: 1, duration: 0.6, ease: 'back.out(2.5)' },
     exitVars:  {},
     bottom: '-22%', left: 'clamp(175px,28vw,448px)',
     width: 'clamp(38px,5.5vw,88px)', height: 'clamp(52px,7.5vw,120px)', zIndex: 20,
   },
-  // Permanent: spiral/flower — RIGHT of word2, BIGGER
+  // Permanent: spiral/flower — top-right corner of letter G in "Anything"
   {
     id: 'spiral', word: 2, charIdx: 7, permanent: true,
     enterVars: { scale: 1, opacity: 1, duration: 0.6, ease: 'back.out(2.5)' },
     exitVars:  {},
-    top: '5%', left: 'clamp(430px,68vw,1080px)',
+    top: '-22%', left: 'clamp(390px,67vw,970px)',
     width: 'clamp(52px,7.5vw,120px)', height: 'clamp(52px,7.5vw,120px)', zIndex: 20,
   },
 ];
@@ -280,14 +280,15 @@ const Hero: React.FC = () => {
     tl.to(iconEls['diamond'],         { ...ICONS[2].enterVars }, '+=0.08');
     tl.to(iconEls['cross'],           { ...ICONS[3].enterVars }, '+=0.08');
 
+    // CHANGE 1: faster — duration 0.7→0.5, stagger 0.09→0.055
     tl.to(w1NonIconChars, {
       opacity: 1, yPercent: 0,
-      duration: 0.7,
-      stagger: { each: 0.09, ease: 'power1.inOut' },
+      duration: 0.5,
+      stagger: { each: 0.055, ease: 'power1.inOut' },
       ease: 'expo.out',
     }, '-=0.15');
 
-    tl.to({}, { duration: 0.15 });
+    tl.to({}, { duration: 0.1 });
 
     // cross → 't'
     tl.to(iconEls['cross'],    { ...ICONS[3].exitVars });
@@ -313,10 +314,11 @@ const Hero: React.FC = () => {
     tl.to(iconEls['triangle'],       { ...ICONS[6].enterVars }, '+=0.07');
     tl.to(iconEls['asterisk-green'], { ...ICONS[7].enterVars }, '+=0.07');
 
+    // CHANGE 1: faster — duration 0.65→0.45, stagger 0.07→0.05
     tl.to(w2NonIconChars, {
       opacity: 1, yPercent: 0,
-      duration: 0.65,
-      stagger: { each: 0.07, ease: 'power1.inOut' },
+      duration: 0.45,
+      stagger: { each: 0.05, ease: 'power1.inOut' },
       ease: 'expo.out',
     }, '-=0.2');
 
@@ -344,9 +346,9 @@ const Hero: React.FC = () => {
     // ── Idle animations ──
     const circleEl = iconEls['orange-pinwheel'];
     if (circleEl) {
-      const ORBIT_R  = 20;    // horizontal radius px
-      const ORBIT_MS = 5500;  // one full orbit duration ms
-      const SPIN_MS  = 7000;  // one full self-rotation ms
+      const ORBIT_R  = 20;
+      const ORBIT_MS = 5500;
+      const SPIN_MS  = 7000;
       let startTs: number | null = null;
       
       const tick = (ts: number) => {
@@ -357,12 +359,9 @@ const Hero: React.FC = () => {
         const y = Math.sin(angle) * ORBIT_R * 0.45;
         const rot = (t / SPIN_MS) * 360;
         gsap.set(circleEl, { x, y, rotation: rot });
-        
-        // PERBAIKAN: Hanya memanggil requestAnimationFrame, tanpa ditampung di variabel
         requestAnimationFrame(tick);
       };
       
-      // PERBAIKAN: Hanya memanggil requestAnimationFrame, tanpa ditampung di variabel
       setTimeout(() => { requestAnimationFrame(tick); }, 1200);
     }
     
@@ -390,6 +389,18 @@ const Hero: React.FC = () => {
     pointerEvents: 'none',
   });
 
+  // CHANGE 2: consistent letterSpacing via style prop (not Tailwind tracking-*)
+  // so inline-block spans inherit the exact same spacing as the parent
+  const TEXT_STYLE: React.CSSProperties = {
+    fontSize: 'clamp(70px,15vw,230px)',
+    lineHeight: 0.88,
+    letterSpacing: '-0.03em',
+  };
+  const CHAR_STYLE: React.CSSProperties = {
+    willChange: 'transform, opacity',
+    letterSpacing: '-0.02em',
+  };
+
   return (
     <section
       ref={container}
@@ -412,8 +423,8 @@ const Hero: React.FC = () => {
 
         {/* LINE 1 — solid white */}
         <div className="relative overflow-visible leading-none">
-          <h1 className="invisible font-display font-bold uppercase tracking-tighter whitespace-nowrap"
-            style={{ fontSize: 'clamp(80px,17vw,260px)', lineHeight: 0.88 }}>
+          <h1 className="invisible font-display font-bold uppercase whitespace-nowrap"
+            style={TEXT_STYLE}>
             {WORD1}
           </h1>
           {ICONS.filter(ic => ic.word === 1).map(ic => {
@@ -425,10 +436,10 @@ const Hero: React.FC = () => {
             );
           })}
           <h1 aria-label={WORD1}
-            className="absolute top-0 left-0 font-display font-bold uppercase tracking-tighter text-white whitespace-nowrap"
-            style={{ fontSize: 'clamp(80px,17vw,260px)', lineHeight: 1 }}>
+            className="absolute top-0 left-0 font-display font-bold uppercase text-white whitespace-nowrap"
+            style={TEXT_STYLE}>
             {WORD1.split('').map((char, i) => (
-              <span key={i} className="w1-char inline-block" style={{ willChange: 'transform, opacity' }}>
+              <span key={i} className="w1-char inline-block" style={CHAR_STYLE}>
                 {char}
               </span>
             ))}
@@ -437,8 +448,8 @@ const Hero: React.FC = () => {
 
         {/* LINE 2 — outline white */}
         <div className="relative overflow-visible leading-none mt-1">
-          <h1 className="invisible font-display font-bold uppercase tracking-tighter whitespace-nowrap"
-            style={{ fontSize: 'clamp(80px,16vw,250px)', lineHeight: 0.75 }}>
+          <h1 className="invisible font-display font-bold uppercase whitespace-nowrap"
+            style={TEXT_STYLE}>
             {WORD2}
           </h1>
           {ICONS.filter(ic => ic.word === 2).map(ic => {
@@ -450,14 +461,14 @@ const Hero: React.FC = () => {
             );
           })}
           <h1 aria-label={WORD2}
-            className="absolute top-0 left-0 font-display font-bold uppercase tracking-tighter whitespace-nowrap"
+            className="absolute top-0 left-0 font-display font-bold uppercase whitespace-nowrap"
             style={{
-              fontSize: 'clamp(80px,17vw,260px)', lineHeight: 0.88,
+              ...TEXT_STYLE,
               WebkitTextStroke: '1.5px rgba(255,255,255,0.5)',
               color: 'transparent',
             }}>
             {WORD2.split('').map((char, i) => (
-              <span key={i} className="w2-char inline-block" style={{ willChange: 'transform, opacity' }}>
+              <span key={i} className="w2-char inline-block" style={CHAR_STYLE}>
                 {char}
               </span>
             ))}
